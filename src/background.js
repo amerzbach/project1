@@ -5,14 +5,14 @@ class Background {
   }
 
   setup() {
-    // this.bgImg = loadImage("assets/bg.png");
+    this.bgImg = loadImage("/assets/seafoto_reduced.jpg");
   }
 
   draw() {
     
-    
-    fill("cyan");
-    rect(0,0,WIDTH,HEIGHT);
+    image(this.bgImg,0, 0,);
+    // fill("cyan");
+    // rect(0,0,WIDTH,HEIGHT);
 
     /*
     image(this.bgImg, this.x, 0, width, height);

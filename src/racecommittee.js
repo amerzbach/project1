@@ -23,17 +23,21 @@ class RaceCommittee {
   draw() {
     image(this.img,this.x,this.y,YACHTSIZE,YACHTSIZE);
     this.checkCommitteeCollision();
-    textSize(50);
+    fill("blue");
+    textSize(70);
     if (timer === 0) {
       text("GO",WIDTH/2,HEIGHT/2);
       this.regattaStarted = true;
+    }
+    else if (timer === -1) {
+      text("",WIDTH/2,HEIGHT/2);
     }
     else {
       text(timer,WIDTH/2,HEIGHT/2);
       this.drawImaginaryLine();
     }
       
-    if (frameCount % 60 == 0 && timer >= 1) timer --;
+    if (frameCount % 60 == 0 && timer > -1) timer --;
   }
   
   checkCommitteeCollision() {

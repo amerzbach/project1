@@ -12,7 +12,7 @@ class Yacht {
   }
 
   setup() {
-    this.img = loadImage("/assets/yacht.jpg");
+    this.img = loadImage("/assets/red-sail-boat.gif");
   }
 
   draw() {
