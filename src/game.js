@@ -2,7 +2,7 @@ class Game {
   constructor() {
     this.bg = new Background();
     this.buoy1 = new Buoy(WIDTH/2,HEIGHT-100);
-    this.buoy2 = new Buoy(WIDTH/2,100);
+    this.buoy2 = new Buoy(WIDTH/2,200);
     this.buoy3 = new Buoy(100,HEIGHT/2);
     this.yacht1 = new Yacht();
     this.raceCommittee = new RaceCommittee(WIDTH/2 +200,HEIGHT-100-(YACHTSIZE/2));

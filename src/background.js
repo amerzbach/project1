@@ -10,11 +10,14 @@ class Background {
 
   draw() {
     
-    image(this.bgImg,0, 0,);
-    // fill("cyan");
-    // rect(0,0,WIDTH,HEIGHT);
+    image(this.bgImg,0, 0,WIDTH,HEIGHT);
+
 
     /*
+
+    fill("cyan");
+    rect(0,0,WIDTH,HEIGHT);
+
     image(this.bgImg, this.x, 0, width, height);
     image(this.bgImg, this.x1, 0, width, height);
 
@@ -28,5 +31,6 @@ class Background {
       this.x1 = width;
     }
     */
+    
   }
 }

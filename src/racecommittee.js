@@ -1,4 +1,6 @@
 let timer = 5;
+let parentNode = document.getElementsByTagName("H1");
+let childNode = document.createElement("H3");
 
 class RaceCommittee {
   constructor(x,y) {
@@ -23,7 +25,7 @@ class RaceCommittee {
   draw() {
     image(this.img,this.x,this.y,YACHTSIZE,YACHTSIZE);
     this.checkCommitteeCollision();
-    fill("blue");
+    fill("orange");
     textSize(70);
     if (timer === 0) {
       text("GO",WIDTH/2,HEIGHT/2);
@@ -34,6 +36,8 @@ class RaceCommittee {
     }
     else {
       text(timer,WIDTH/2,HEIGHT/2);
+      // childNode.innerText = timer;
+      // parentNode.appendChild(childNode);
       this.drawImaginaryLine();
     }
       
