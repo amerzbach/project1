@@ -15,7 +15,7 @@ class RaceCommittee {
   }
 
   setup() {
-    this.img = loadImage("/assets/yacht.jpg");
+    this.img = loadImage("/assets/racecommittee.png");
   }
 
   draw() {
@@ -23,8 +23,9 @@ class RaceCommittee {
     this.checkCommitteeCollision();
     fill("orange");
     textSize(50);
+    
     if (startTimer === 0) {
-      text("GO TO BUOY 2",WIDTH/2,HEIGHT/2);
+      text("START - GO TO BUOY 2",WIDTH/4,HEIGHT/2);
       regattaStarted = true;
     }
     else if (startTimer === -1) {
@@ -32,18 +33,34 @@ class RaceCommittee {
     }
     else {
       text(startTimer,WIDTH/2,HEIGHT/2);
-      // childNode.innerText = startTimer;
-      // parentNode.appendChild(childNode);
       this.drawImaginaryLine();
-    }
-      
+    }  
     if (frameCount % 60 == 0 && startTimer > -1)  startTimer--;
+    
+    // Committee boat starts to sail to finish position at step 4
+    if (this.y > (game.buoy2.y - (YACHTSIZE/2)) && regattaStep >= 4) {
+        this.y = (this.y - (1*SAILSPEED));
+    }
+
+    this.rect = {
+      left: this.x,
+      right: this.x + YACHTSIZE,
+      top: this.y,
+      bottom: this.y + YACHTSIZE
+    }
   }
   
   checkCommitteeCollision() {
-    if (this.intersectRect(this.rect,game.yacht1.rect)) game.gameOver(); 
-    // console.log(game.yacht1.rect);
-    // if (!(regattaStarted) && this.intersectRect(this.imaginaryLine,game.yacht1.rect)) game.gameOver(); 
+    if (this.intersectRect(this.rect,game.yacht1.rect)) {
+      gameCredits = gameCredits - 20;
+      textSize(20);
+      fill("red");
+      text("Race Committee Touched",this.x,this.y-50);
+      game.yacht1.x = game.yacht1.x + BUOYSIZE;
+      game.yacht1.y = game.yacht1.y + BUOYSIZE;
+      noLoop();
+      setTimeout(loop,1000);
+    }
   }
 
   intersectRect(rectA, rectB) {
@@ -65,8 +82,6 @@ class RaceCommittee {
       top: game.buoy1.y,
       bottom: this.y+(YACHTSIZE/2)
     }
-    
-    // console.log(this.imaginaryLine);
   }
 
 }

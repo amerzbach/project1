@@ -64,7 +64,6 @@ class Yacht {
     else if (this.x> (WIDTH - YACHTSIZE)) this.x = this.x - YACHTSIZE/4;
     else if (this.y<=118) this.y = 118;
     else if (this.y > (HEIGHT - YACHTSIZE)) this.y = HEIGHT - YACHTSIZE;
-    console.log(regattaStep);
    
     //Control the regatta steps and guide the user with messages
     if ((this.x < game.buoy2.x) && (this.y < game.buoy2.y) && (regattaStep === 0)) {
@@ -92,10 +91,16 @@ class Yacht {
       setTimeout(loop,1000);
     }
     else if ((this.x > game.buoy1.x) && (this.y > game.buoy1.y) && (regattaStep === 4)) {
-      text("GO TO FINAL",WIDTH/3,HEIGHT/2);
+      text("GO TO FINISH",WIDTH/3,HEIGHT/2);
       regattaStep++;
       noLoop();
       setTimeout(loop,1000);
+    }
+    else if ((this.y < game.buoy1.y) && (this.y < game.raceCommittee.y) && (regattaStep === 5)) {
+      text("CONGRATS YOU FINISH",WIDTH/4,HEIGHT/2);
+      regattaStep++;
+      noLoop();
+      setTimeout(loop,3000);
     }
 }
 }

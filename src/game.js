@@ -11,6 +11,7 @@ class Game {
     this.bg.setup();
     this.yacht1.setup();
     this.raceCommittee.setup();
+    
   }
 
   draw() {

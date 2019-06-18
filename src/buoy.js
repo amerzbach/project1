@@ -24,9 +24,8 @@ class Buoy {
   }
 
   checkBuoyCollision() {
-    if (this.intersectRect(this.rect,game.yacht1.rect)) {
+    if (this.intersectCircle(this,game.yacht1)) {
       gameCredits = gameCredits - 20;
-      console.log(gameCredits);
       textSize(20);
       fill("red");
       text("Bouy Touched",this.x,this.y-50);
@@ -34,27 +33,20 @@ class Buoy {
       game.yacht1.y = game.yacht1.y + BUOYSIZE;
       noLoop();
       setTimeout(loop,1000);
-      return true;
     } 
-    return false;
-    // if (this.intersectCircRect(this,game.yacht1.rect)) game.gameOver(); 
   }
 
-  intersectRect(rectA, rectB) {
-    return !(
-      rectA.left > rectB.right ||
-      rectA.right < rectB.left ||
-      rectA.top > rectB.bottom ||
-      rectA.bottom < rectB.top
-    );
-  }
-
-  intersectCircRect(circle,rect) {
-
-    if      (sqrt((rect.right - this.x)^2 + (rect.bottom - this.y)^2) < this.radius) return true;
-    else if (sqrt((rect.right - this.x)^2 + (rect.top - this.y)^2) < this.radius) return true;
-    else if (sqrt((rect.left - this.x)^2 + (rect.top - this.y)^2) < this.radius) return true;
-    else if (sqrt((rect.left - this.x)^2 + (rect.bottom - this.y)^2) < this.radius) return true;
+  intersectCircle(c1,c2) {
+    let circle1 = {radius: c1.radius, x: c1.x, y: c1.y};
+    let circle2 = {radius: YACHTSIZE/2, x:c2.x + (YACHTSIZE/2), y: c2.y + (YACHTSIZE/2)};
+    
+    let dx = circle1.x - circle2.x;
+    let dy = circle1.y - circle2.y;
+    let distance = Math.sqrt(dx * dx + dy * dy);
+    
+    if (distance < circle1.radius + circle2.radius) {
+        return true;
+    }
     return false;
   }
   
