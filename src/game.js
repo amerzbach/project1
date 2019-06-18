@@ -20,6 +20,7 @@ class Game {
     this.buoy3.draw();
     this.yacht1.draw();
     this.raceCommittee.draw();
+    this.checkGameStatus();
   }
 
   checkGameStatus() {

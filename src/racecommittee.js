@@ -1,6 +1,4 @@
-let timer = 5;
-let parentNode = document.getElementsByTagName("H1");
-let childNode = document.createElement("H3");
+
 
 class RaceCommittee {
   constructor(x,y) {
@@ -24,22 +22,22 @@ class RaceCommittee {
     image(this.img,this.x,this.y,YACHTSIZE,YACHTSIZE);
     this.checkCommitteeCollision();
     fill("orange");
-    textSize(70);
-    if (timer === 0) {
-      text("GO",WIDTH/2,HEIGHT/2);
+    textSize(50);
+    if (startTimer === 0) {
+      text("GO TO BUOY 2",WIDTH/2,HEIGHT/2);
       regattaStarted = true;
     }
-    else if (timer === -1) {
+    else if (startTimer === -1) {
       text("",WIDTH/2,HEIGHT/2);
     }
     else {
-      text(timer,WIDTH/2,HEIGHT/2);
-      // childNode.innerText = timer;
+      text(startTimer,WIDTH/2,HEIGHT/2);
+      // childNode.innerText = startTimer;
       // parentNode.appendChild(childNode);
       this.drawImaginaryLine();
     }
       
-    if (frameCount % 60 == 0 && timer > -1) timer --;
+    if (frameCount % 60 == 0 && startTimer > -1)  startTimer--;
   }
   
   checkCommitteeCollision() {

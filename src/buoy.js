@@ -8,6 +8,7 @@ class Buoy {
 
   draw () {
     fill ("orange");
+    // this.x = this.x + Math.floor(Math.random()*1.2) - Math.floor(Math.random()*1.2);
     circle (this.x,this.y,BUOYSIZE);
     textSize(10);
     fill("black");
@@ -18,8 +19,8 @@ class Buoy {
       top: this.y - this.radius,
       bottom: this.y + this.radius
     }
-    console.log(gameCredits);
     this.checkBuoyCollision();
+
   }
 
   checkBuoyCollision() {
@@ -31,13 +32,11 @@ class Buoy {
       text("Bouy Touched",this.x,this.y-50);
       game.yacht1.x = game.yacht1.x + BUOYSIZE;
       game.yacht1.y = game.yacht1.y + BUOYSIZE;
-      
-      while (frameCount % 120 != 0) {
-        noLoop();
-      }
-      loop();
-      
+      noLoop();
+      setTimeout(loop,1000);
+      return true;
     } 
+    return false;
     // if (this.intersectCircRect(this,game.yacht1.rect)) game.gameOver(); 
   }
 
