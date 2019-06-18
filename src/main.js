@@ -10,8 +10,7 @@ function setup() {
 
 function draw() {
   game.draw();
-
-  if (keyIsDown(LEFT_ARROW) && keyIsDown(UP_ARROW)) game.yacht1.sail("upLeft"); 
+  if (keyIsDown(LEFT_ARROW) && keyIsDown(UP_ARROW)) game.yacht1.sail("upLeft");   
   else if (keyIsDown(RIGHT_ARROW) && keyIsDown(UP_ARROW)) game.yacht1.sail("upRight"); 
   else if (keyIsDown(LEFT_ARROW) && keyIsDown(DOWN_ARROW)) game.yacht1.sail("downLeft"); 
   else if (keyIsDown(RIGHT_ARROW) && keyIsDown(DOWN_ARROW)) game.yacht1.sail("downRight"); 

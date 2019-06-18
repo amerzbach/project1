@@ -7,7 +7,6 @@ class RaceCommittee {
     this.x = x;
     this.y = y;
     this.course = "up";
-    this.regattaStarted = false;
     this.rect = {
       left: this.x,
       right: this.x + YACHTSIZE,
@@ -15,7 +14,6 @@ class RaceCommittee {
       bottom: this.y + YACHTSIZE
     }
     this.imaginaryLine = {};
-
   }
 
   setup() {
@@ -29,7 +27,7 @@ class RaceCommittee {
     textSize(70);
     if (timer === 0) {
       text("GO",WIDTH/2,HEIGHT/2);
-      this.regattaStarted = true;
+      regattaStarted = true;
     }
     else if (timer === -1) {
       text("",WIDTH/2,HEIGHT/2);
@@ -46,8 +44,8 @@ class RaceCommittee {
   
   checkCommitteeCollision() {
     if (this.intersectRect(this.rect,game.yacht1.rect)) game.gameOver(); 
-    console.log(game.yacht1.rect);
-    // if (!(this.regattaStarted) && this.intersectRect(this.imaginaryLine,game.yacht1.rect)) game.gameOver(); 
+    // console.log(game.yacht1.rect);
+    // if (!(regattaStarted) && this.intersectRect(this.imaginaryLine,game.yacht1.rect)) game.gameOver(); 
   }
 
   intersectRect(rectA, rectB) {
@@ -70,7 +68,7 @@ class RaceCommittee {
       bottom: this.y+(YACHTSIZE/2)
     }
     
-    console.log(this.imaginaryLine);
+    // console.log(this.imaginaryLine);
   }
 
 }
