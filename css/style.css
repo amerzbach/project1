@@ -1,8 +1,13 @@
 
 body {
-  background-color: white;
+  background-color: black;
+  text-align: center;
 }
 
 h1 {
-  color: blue;
+  color: white;
+}
+
+h2 {
+  color: white;
 }

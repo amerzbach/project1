@@ -102,7 +102,7 @@ class Yacht {
     }
     else if ((regattaStep === 5) && (this.y < game.buoy1.y) && (this.y < game.raceCommittee.y) && (this.x > game.buoy1.x) && (this.x < game.raceCommittee.x)) {
       text("CONGRATS YOU FINISH",WIDTH/4,HEIGHT/2);
-      instructionsNode.innerHTML = "Regatta Finished"
+      instructionsNode.innerHTML = "Regatta Finished - <a href=''>Click here to restart</a>"
       regattaStep++;
       noLoop();
       setTimeout(loop,3000);

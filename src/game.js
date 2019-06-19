@@ -6,11 +6,14 @@ class Game {
     this.buoy3 = new Buoy(100,HEIGHT/2,3);
     this.yacht1 = new Yacht();
     this.raceCommittee = new RaceCommittee(WIDTH/2 +200,HEIGHT-100-(YACHTSIZE/2));
+    this.obstacles = [];
   }
   setup() {
     this.bg.setup();
     this.yacht1.setup();
-    this.raceCommittee.setup(); 
+    this.raceCommittee.setup();
+    this.motorBoatRight = loadImage("assets/motorBoatRight.png");
+    this.motorBoatLeft = loadImage("assets/motorBoatLeft.png");
   }
 
   draw() {
@@ -21,6 +24,12 @@ class Game {
     this.yacht1.draw();
     this.raceCommittee.draw();
     this.checkGameStatus();
+    
+    if (frameCount % 500 === 0) {
+      this.obstacles.push(new Obstacle());
+    }
+    this.obstacles.forEach(obstacle => {obstacle.draw();});
+  
   }
 
   checkGameStatus() {
@@ -29,7 +38,8 @@ class Game {
 
   gameOver() {
     console.log("GAME OVER");
-    node.innerHTML = "Game Credits "+ gameCredits + " GAME OVER";
+    creditsNode.innerHTML = "Game Credits "+ gameCredits + " GAME OVER";
+    instructionsNode.innerHTML = "<a href=''>Click here to restart</a>"
     noLoop();
   }
 
