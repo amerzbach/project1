@@ -5,7 +5,7 @@ class Background {
   }
 
   setup() {
-    this.bgImg = loadImage("../assets/seafoto_reduced.jpg");
+    this.bgImg = loadImage("src/seafoto_reduced.jpg");
   }
 
   draw() {
