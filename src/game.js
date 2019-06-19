@@ -10,8 +10,7 @@ class Game {
   setup() {
     this.bg.setup();
     this.yacht1.setup();
-    this.raceCommittee.setup();
-    
+    this.raceCommittee.setup(); 
   }
 
   draw() {
@@ -27,9 +26,12 @@ class Game {
   checkGameStatus() {
     if (gameCredits<=0) this.gameOver();
   }
-  
+
   gameOver() {
     console.log("GAME OVER");
+    node.innerHTML = "Game Credits "+ gameCredits + " GAME OVER";
     noLoop();
   }
+
 }
+

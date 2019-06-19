@@ -26,6 +26,7 @@ class Buoy {
   checkBuoyCollision() {
     if (this.intersectCircle(this,game.yacht1)) {
       gameCredits = gameCredits - 20;
+      creditsNode.innerHTML = "Game Credits "+ gameCredits;
       textSize(20);
       fill("red");
       text("Bouy Touched",this.x,this.y-50);

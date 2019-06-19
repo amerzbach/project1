@@ -2,7 +2,7 @@ const game = new Game();
 
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
-  //canvas.parent("game-board");
+  canvas.parent("game-board");
   game.setup();
 }
 

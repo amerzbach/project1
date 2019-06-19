@@ -11,11 +11,11 @@ class RaceCommittee {
       top: this.y,
       bottom: this.y + YACHTSIZE
     }
-    this.imaginaryLine = {};
+    // this.imaginaryLine = {};
   }
 
   setup() {
-    this.img = loadImage("/assets/racecommittee.png");
+    this.img = loadImage("assets/racecommittee.png");
   }
 
   draw() {
@@ -26,6 +26,7 @@ class RaceCommittee {
     
     if (startTimer === 0) {
       text("START - GO TO BUOY 2",WIDTH/4,HEIGHT/2);
+      instructionsNode.innerHTML = "Sail to buoy 2"
       regattaStarted = true;
     }
     else if (startTimer === -1) {
@@ -33,7 +34,7 @@ class RaceCommittee {
     }
     else {
       text(startTimer,WIDTH/2,HEIGHT/2);
-      this.drawImaginaryLine();
+      // this.drawImaginaryLine();
     }  
     if (frameCount % 60 == 0 && startTimer > -1)  startTimer--;
     
@@ -53,6 +54,7 @@ class RaceCommittee {
   checkCommitteeCollision() {
     if (this.intersectRect(this.rect,game.yacht1.rect)) {
       gameCredits = gameCredits - 20;
+      creditsNode.innerHTML = "Game Credits "+ gameCredits;
       textSize(20);
       fill("red");
       text("Race Committee Touched",this.x,this.y-50);
@@ -72,8 +74,9 @@ class RaceCommittee {
     );
   }
 
+  /*
   drawImaginaryLine () {
-    stroke("red");
+    stroke("orange");
     line(game.buoy1.rect.right,game.buoy1.y,this.rect.left,this.y+(YACHTSIZE/2));
     
     this.imaginaryLine = {
@@ -83,5 +86,5 @@ class RaceCommittee {
       bottom: this.y+(YACHTSIZE/2)
     }
   }
-
+  */
 }
