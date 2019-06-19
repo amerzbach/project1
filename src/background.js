@@ -5,7 +5,7 @@ class Background {
   }
 
   setup() {
-    this.bgImg = loadImage("/assets/seafoto_reduced.jpg");
+    this.bgImg = loadImage("assets/seafoto_reduced.jpg");
   }
 
   draw() {
@@ -18,6 +18,7 @@ class Background {
     fill("cyan");
     rect(0,0,WIDTH,HEIGHT);
 
+    
     image(this.bgImg, this.x, 0, width, height);
     image(this.bgImg, this.x1, 0, width, height);
 
@@ -29,6 +30,8 @@ class Background {
     }
     if (this.x1 < -width) {
       this.x1 = width;
+    }
+
     }
     */
     
