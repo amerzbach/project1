@@ -8,17 +8,10 @@ class Buoy {
 
   draw () {
     fill ("orange");
-    // this.x = this.x + Math.floor(Math.random()*1.2) - Math.floor(Math.random()*1.2);
     circle (this.x,this.y,BUOYSIZE);
     textSize(10);
     fill("black");
     text(this.buoyNumber,this.x,this.y);
-    this.rect = {
-      left: this.x - this.radius,
-      right: this.x + this.radius,
-      top: this.y - this.radius,
-      bottom: this.y + this.radius
-    }
     this.checkBuoyCollision();
 
   }
@@ -27,15 +20,22 @@ class Buoy {
     if (this.intersectCircle(this,game.yacht1)) {
       gameCredits = gameCredits - 20;
       creditsNode.innerHTML = "Game Credits "+ gameCredits;
+      fill("orange");
+      circle (this.x,this.y,BUOYSIZE*2);
       textSize(20);
-      fill("red");
-      text("Bouy Touched",this.x,this.y-50);
+      fill("black");
+      text(this.buoyNumber,this.x,this.y);
+      textSize(20);
+      fill("white");
+      text("Bouy Touched",this.x,this.y-30);
       game.yacht1.x = game.yacht1.x + BUOYSIZE;
       game.yacht1.y = game.yacht1.y + BUOYSIZE;
       noLoop();
       setTimeout(loop,1000);
     } 
   }
+  
+  // Check if the Buoy circle intersects with the circle-rectangle of the boat
 
   intersectCircle(c1,c2) {
     let circle1 = {radius: c1.radius, x: c1.x, y: c1.y};

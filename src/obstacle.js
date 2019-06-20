@@ -6,7 +6,6 @@ class Obstacle {
     }
 
     setup() {
-
     }
 
     draw() {
@@ -16,6 +15,7 @@ class Obstacle {
       image(game.motorBoatRight,(this.x1 - 200)*1.4,this.y + 410,50,50);
       image(game.motorBoatRight,(this.x1 - 100)*1.8,this.y + 300,50,50);
       image(game.motorBoatRight,this.x1,this.y+ 160,50,50);
+
       this.x --
       this.x1 ++
     }

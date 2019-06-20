@@ -2,13 +2,15 @@ const game = new Game();
 
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
+  // DOM Parent node where the game board will appear
   canvas.parent("game-board");
   game.setup();
 }
 
 function draw() {
   game.draw();
-  //Controls the sailing course using keys combinations
+  //Controls the sailing course using keys combinations. By default the boat
+  //sails Up - Moving Down simulating a real boat
   game.yacht1.sail("up");
   if (keyIsDown(LEFT_ARROW) && keyIsDown(UP_ARROW)) game.yacht1.sail("upLeft");   
   else if (keyIsDown(RIGHT_ARROW) && keyIsDown(UP_ARROW)) game.yacht1.sail("upRight"); 

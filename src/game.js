@@ -8,6 +8,7 @@ class Game {
     this.raceCommittee = new RaceCommittee(WIDTH/2 +200,HEIGHT-100-(YACHTSIZE/2));
     this.obstacles = [];
   }
+
   setup() {
     this.bg.setup();
     this.yacht1.setup();
@@ -29,7 +30,6 @@ class Game {
       this.obstacles.push(new Obstacle());
     }
     this.obstacles.forEach(obstacle => {obstacle.draw();});
-  
   }
 
   checkGameStatus() {
@@ -37,10 +37,9 @@ class Game {
   }
 
   gameOver() {
-    console.log("GAME OVER");
-    creditsNode.innerHTML = "Game Credits "+ gameCredits + " GAME OVER";
-    instructionsNode.innerHTML = "<a href=''>Click here to restart</a>"
     noLoop();
+    creditsNode.innerHTML = "Game Credits 0 GAME OVER";
+    instructionsNode.innerHTML = "<a href='javascript:location.reload(true)'>Restart game</a>"
   }
 
 }

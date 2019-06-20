@@ -1,17 +1,13 @@
-
-
 class RaceCommittee {
   constructor(x,y) {
     this.x = x;
     this.y = y;
-    this.course = "up";
     this.rect = {
       left: this.x,
       right: this.x + YACHTSIZE,
       top: this.y,
       bottom: this.y + YACHTSIZE
     }
-    // this.imaginaryLine = {};
   }
 
   setup() {
@@ -25,18 +21,14 @@ class RaceCommittee {
     textSize(50);
     
     if (startTimer === 0) {
-      text("START - GO TO BUOY 2",WIDTH/4,HEIGHT/2);
+      text("START - Sail to BUOY 2",WIDTH/4,HEIGHT/2);
       instructionsNode.innerHTML = "Sail to buoy 2"
       regattaStarted = true;
     }
-    else if (startTimer === -1) {
-      text("",WIDTH/2,HEIGHT/2);
-    }
-    else {
-      text(startTimer,WIDTH/2,HEIGHT/2);
-      // this.drawImaginaryLine();
-    }  
-    if (frameCount % 60 == 0 && startTimer > -1)  startTimer--;
+    else if (startTimer === -1) text(" ",WIDTH/4,HEIGHT/2);
+    else text(startTimer,WIDTH/2,HEIGHT/2);
+ 
+    if (frameCount % 60 == 0 && startTimer >= 0)  startTimer--;
     
     // Committee boat starts to sail to finish position at step 4
     if (this.y > (game.buoy2.y - (YACHTSIZE/2)) && regattaStep >= 4) {
@@ -56,10 +48,10 @@ class RaceCommittee {
       gameCredits = gameCredits - 20;
       creditsNode.innerHTML = "Game Credits "+ gameCredits;
       textSize(20);
-      fill("red");
-      text("Race Committee Touched",this.x,this.y-50);
-      game.yacht1.x = game.yacht1.x + BUOYSIZE;
-      game.yacht1.y = game.yacht1.y + BUOYSIZE;
+      fill("fill");
+      text("Race Committee Touched",this.x -50,this.y);
+      game.yacht1.x = this.x;
+      game.yacht1.y = this.y + YACHTSIZE*2;
       noLoop();
       setTimeout(loop,1000);
     }
@@ -74,17 +66,4 @@ class RaceCommittee {
     );
   }
 
-  /*
-  drawImaginaryLine () {
-    stroke("orange");
-    line(game.buoy1.rect.right,game.buoy1.y,this.rect.left,this.y+(YACHTSIZE/2));
-    
-    this.imaginaryLine = {
-      left: game.buoy1.rect.right,
-      right: this.rect.left,
-      top: game.buoy1.y,
-      bottom: this.y+(YACHTSIZE/2)
-    }
-  }
-  */
 }

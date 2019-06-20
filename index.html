@@ -4,15 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Grazy Regatta Game</title>
+   
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <title>The Grazy Regatta Game</title>
+  
   </head>
+  
   <body>
-    <center>
-    <h1>The Crazzy Regatta Game</h1>
-    
-    <div id="game-board">
-    
+
+    <div class="navbar-expand-md">
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">The Crazy Regatta Game</a>
+        </nav>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-sm-8" id="game-board">
+        <!-- At this area will appear the game board -->
+          <br>
+        </div>
+
+        <div class="col-sm-4" id="game-pannel">
+          <br>
+          <h3>Game Instructions</h3>
+          <p>Use your keyboard arrow keys to sail with your boat. 
+            Combine Arrow Up with Arrow Right or Left to sail against the wind.</p>
+          <p>Sail from buoy to buoy following the instructions</p>
+          <p>In case you touch the buoys or the race committee boat you will loose credits.</p>
+          <p>The game ends when your sailboat crosses the finish line or when you loose all your credits.</p>
+          
+          <!-- At this area will appear notifications via DOM Methods -->
+          <span id="notifications"> </span>
+          <br> 
+        </div>
+        </div>
+    </div>
+
+    <!-- P5 Libraries and JavaScript Code -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.sound.min.js"></script>
     <script src="src/constants.js"></script>
@@ -23,16 +60,6 @@
     <script src="src/obstacle.js"></script>
     <script src="src/game.js"></script>
     <script src="src/main.js"></script>
-  
-    
 
-    </div>
-    
-    <div id="game-pannel">
-      
-    </div>
-  
-  </center>
-  
   </body>
 </html>
